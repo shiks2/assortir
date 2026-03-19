@@ -59,6 +59,7 @@ export default function Home() {
 
   const canSubmit = Boolean(itemType && itemColor && itemMaterial && itemFit)
   const outOfQueries = !isPro && queriesRemaining <= 0
+  const submitButtonText = outOfQueries ? 'No queries left this month' : 'Get recommendations'
 
   // DEBUG: Log why the button might be disabled
   useEffect(() => {
@@ -227,9 +228,7 @@ export default function Home() {
             >
               {loading
                 ? <Row $gap="8px"><Spinner $size={16} $light /><span>Getting recommendations...</span></Row>
-                : outOfQueries
-                  ? 'No queries left this month'
-                  : 'Get recommendations'
+                : submitButtonText
               }
             </Button>
           </Stack>

@@ -36,6 +36,11 @@ const MATERIALS_LIST = ['Polyester', 'Wool', 'Leather', 'Nylon', 'Silk', 'Velvet
 const PREFERRED_MATERIALS = ['Cotton', 'Linen', 'Bamboo', 'Khadi', 'Chanderi']
 const REGIONS = ['India', 'US', 'Europe', 'Middle East', 'Southeast Asia', 'Other']
 const GENDERS = ['Male', 'Female', 'Non binary']
+const STEP_KEYS = ['identity', 'skin', 'style', 'materials'] as const
+
+function toggleSelection(list: string[], setList: (v: string[]) => void, val: string) {
+  setList(list.includes(val) ? list.filter(v => v !== val) : [...list, val])
+}
 
 // ─── Component ────────────────────────────────────────────────
 
@@ -75,12 +80,6 @@ export default function Onboarding() {
     return true
   }
 
-  // ─── Toggle chip helpers ──────────────────────────────────────
-
-  function toggle(list: string[], setList: (v: string[]) => void, val: string) {
-    setList(list.includes(val) ? list.filter(v => v !== val) : [...list, val])
-  }
-
   // ─── Submit ───────────────────────────────────────────────────
 
   async function handleFinish() {
@@ -101,7 +100,8 @@ export default function Onboarding() {
       })()
 
       // Run all updates in parallel
-      const [p1, p2, p3, p4, p5] = await Promise.all([
+      /* const [p1, p2, p3, p4, p5] = await Promise.all([ */
+      const [p1, p2, p3, p4] = await Promise.all([
         supabase.from('profiles').update({
           full_name: fullName.trim(),
           gender: gender.toLowerCase().replace(' ', '_'),
@@ -156,8 +156,9 @@ export default function Onboarding() {
       await updateProfile({ is_profile_complete: true })
       await refreshUserData()
       navigate('/home')
-    } catch (err: any) {
-      setError('Could not skip onboarding. Please check your connection.')
+    } catch (err: unknown) {
+      const message = err instanceof Error ? err.message : 'Please check your connection.'
+      setError(`Could not skip onboarding. ${message}`)
     } finally {
       setLoading(false)
     }
@@ -295,7 +296,7 @@ export default function Onboarding() {
             <Chip
               key={m}
               $active={blacklisted.includes(m)}
-              onClick={() => toggle(blacklisted, setBlacklisted, m)}
+                    onClick={() => toggleSelection(blacklisted, setBlacklisted, m)}
             >
               {m}
             </Chip>
@@ -310,7 +311,7 @@ export default function Onboarding() {
             <Chip
               key={m}
               $active={preferred.includes(m)}
-              onClick={() => toggle(preferred, setPreferred, m)}
+                    onClick={() => toggleSelection(preferred, setPreferred, m)}
             >
               {m}
             </Chip>
@@ -330,8 +331,8 @@ export default function Onboarding() {
     <PageWrapper>
       <CenteredContainer>
         <StepDots>
-          {steps.map((_, i) => (
-            <StepDot key={i} $active={i === step} />
+          {STEP_KEYS.map((stepKey, i) => (
+            <StepDot key={stepKey} $active={i === step} />
           ))}
         </StepDots>
 
