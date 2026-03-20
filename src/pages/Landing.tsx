@@ -5,6 +5,7 @@ import styled, { keyframes } from 'styled-components'
 
 import { BRAND_NAME, FOUNDER_NAME, FOUNDER_LOCATION, COMPANY_NAME } from '../constants'
 import { PricingContent } from '../components/PricingContent'
+import rangDarkAnimate from '../assets/rang_dark_animate.mp4'
 
 const fadeUp = keyframes`
   from { opacity: 0; transform: translateY(20px); }
@@ -59,7 +60,6 @@ const HeroCTA = styled.div`
   animation:${fadeUp} 0.7s ease 0.3s both;
 `
 const HeroMockup = styled.div`
-  margin-top: 60px;
   max-width: 480px;
   width: 100%;
   border-radius: 12px;
@@ -67,7 +67,20 @@ const HeroMockup = styled.div`
   box-shadow: 0 20px 40px rgba(0,0,0,0.4);
   border: 0.5px solid rgba(255,255,255,0.1);
   animation: ${fadeUp} 0.8s ease 0.4s both;
+  img,
   video { width: 100%; display: block; }
+`
+const HeroMediaRow = styled.div`
+  margin-top: 60px;
+  width: 100%;
+  max-width: 980px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
 `
 const CTAPrimary = styled(Link)`
   display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:500;
@@ -83,7 +96,7 @@ const DemoStrip = styled.div`
 const DemoFlow = styled.div`display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;padding:0 24px;`
 const DemoStep = styled.div`display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,0.5);white-space:nowrap;`
 const DemoArrow = styled.span`color:rgba(255,255,255,0.2);font-size:16px;`
-const DemoHighlight = styled.span`color:#1a1a1a;font-weight:500;`
+const DemoHighlight = styled.span`color:#f5f4f2;font-weight:500;`
 
 const Section = styled.section<{ $bg?: string }>`background:${({ $bg }) => $bg || '#fff'};padding:80px 0;`
 const SectionTag = styled.div`display:inline-block;font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.1em;color:#1a1a1a;margin-bottom:12px;`
@@ -305,18 +318,23 @@ export default function Landing() {
         </HeroCTA>
         <HeroNote>No subscription required. Upgrade only if you love it.</HeroNote>
         
-        <HeroMockup>
-          <video autoPlay muted loop playsInline>
-            <source src="/src/assets/rang_dark_animate.mp4" type="video/mp4" />
-          </video>
-        </HeroMockup>
+        <HeroMediaRow>
+          <HeroMockup>
+            <video autoPlay muted loop playsInline>
+              <source src={rangDarkAnimate} type="video/mp4" />
+            </video>
+          </HeroMockup>
+          <HeroMockup>
+            <img src="/product_screenshot.png" alt="Rang" />
+          </HeroMockup>
+        </HeroMediaRow>
       </Hero>
 
       <DemoStrip>
         <DemoFlow>
           <DemoStep><DemoHighlight>White linen pants</DemoHighlight></DemoStep>
           <DemoArrow>→</DemoArrow>
-          <DemoStep>Skin tone · Fit · Weather</DemoStep>
+          <DemoStep>Colour · season · style</DemoStep>
           <DemoArrow>→</DemoArrow>
           <DemoStep><DemoHighlight>3 shoppable outfits</DemoHighlight></DemoStep>
           <DemoArrow>→</DemoArrow>

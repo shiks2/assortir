@@ -2,12 +2,13 @@ import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 import { supabase } from '../supabase'
+import { QueryLimitBanner, ProfileIncompleteBanner } from '../components/Banner'
 import type { Intent, StyleResponse } from '../types'
 import {
   PageWrapper, Navbar, Container, Tag, Heading, Label,
   Button, FormGroup, FieldLabel, Select, Input,
   ErrorMessage, Stack, IntentGrid, IntentButton,
-  Divider, Row, Spinner, UpgradeBanner, UpgradeText, UpgradeButton,
+  Divider, Row, Spinner,
 } from '../components/index'
 import styled from 'styled-components'
 
@@ -146,18 +147,10 @@ export default function Home() {
             </Label>
           </PageHeader>
 
-          {/* Upgrade banner */}
-          {!isPro && queriesRemaining <= 1 && queriesRemaining > 0 && (
-            <UpgradeBanner>
-              <UpgradeText>
-                <p>{queriesRemaining} free {queriesRemaining === 1 ? 'query' : 'queries'} left</p>
-                <p>Upgrade to Pro for unlimited recommendations</p>
-              </UpgradeText>
-              <UpgradeButton onClick={() => navigate('/settings')}>
-                Upgrade
-              </UpgradeButton>
-            </UpgradeBanner>
-          )}
+          <Stack $gap="12px" style={{ marginBottom: 16 }}>
+            <ProfileIncompleteBanner />
+            <QueryLimitBanner />
+          </Stack>
 
           {error && <ErrorMessage>{error}</ErrorMessage>}
 

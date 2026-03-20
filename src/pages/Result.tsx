@@ -314,6 +314,9 @@ export default function Result() {
 
           {/* Recommendations */}
           <SectionTitle>Outfit recommendations</SectionTitle>
+          <Label style={{ marginBottom: 8, fontSize: '12px' }}>
+            Exact item may vary search results show closest available matches
+          </Label>
           <Stack $gap="8px" style={{ marginBottom: 24 }}>
             {data.recommendations.map((rec) => (
               <RecCard key={rec.rank}>
