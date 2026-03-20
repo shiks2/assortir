@@ -115,6 +115,7 @@ function AppRouter() {
 // ─── App ──────────────────────────────────────────────────────
 
 export default function App() {
+  console.log("Supabase URL:", import.meta.env.VITE_SUPABASE_URL);
   return (
     <BrowserRouter>
       <ThemeProvider theme={theme}>
