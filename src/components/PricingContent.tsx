@@ -200,7 +200,7 @@ export function PricingContent() {
 
         {/* Pro Plan */}
         <PlanCard $featured>
-          <Badge>Most Popular</Badge>
+          <Badge>Most popular</Badge>
           <PlanName>Pro</PlanName>
           <PlanPrice>
             <span className="amount">₹299</span>

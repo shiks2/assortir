@@ -66,18 +66,21 @@ function FullPageLoader() {
     <div style={{
       height: '100vh',
       display: 'flex',
+      flexDirection: 'column',
+      gap: 16,
       alignItems: 'center',
       justifyContent: 'center',
       background: '#fff',
     }}>
-      <div style={{
-        width: 32,
-        height: 32,
-        border: '2px solid #f0ede8',
-        borderTop: '2px solid #1a1a1a',
-        borderRadius: '50%',
-        animation: 'spin 0.7s linear infinite',
-      }} />
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        style={{ width: 132, maxWidth: '48vw', display: 'block' }}
+      >
+        <source src="/src/assets/rang_animated.mp4" type="video/mp4" />
+      </video>
     </div>
   )
 }

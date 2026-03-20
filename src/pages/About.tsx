@@ -21,12 +21,15 @@ const Nav = styled.nav`
 `
 
 const Logo = styled(Link)`
-  font-size: 17px;
-  font-weight: 500;
-  color: ${({ theme }) => theme.colors.text};
-  letter-spacing: -0.03em;
+  display: inline-flex;
+  align-items: center;
   text-decoration: none;
-  span { color: ${({ theme }) => theme.colors.accent}; }
+
+  img {
+    display: block;
+    height: 28px;
+    width: auto;
+  }
 `
 
 const NavLinks = styled.div`
@@ -45,7 +48,7 @@ const NavLink = styled(Link)<{ $primary?: boolean }>`
   ${({ $primary, theme }) => $primary ? `
     background: ${theme.colors.accent};
     color: #ffffff;
-    &:hover { background: #b3682f; }
+    &:hover { background: #333333; }
   ` : `
     color: ${theme.colors.textSecondary};
     &:hover { color: ${theme.colors.text}; background: ${theme.colors.bgSecondary}; }
@@ -146,13 +149,13 @@ const Avatar = styled.div`
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  background: #FAECE7;
+  background: #f5f4f2;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 18px;
   font-weight: 500;
-  color: #712B13;
+  color: #1a1a1a;
   flex-shrink: 0;
 `
 
@@ -260,7 +263,7 @@ const CTAButton = styled(Link)`
   border-radius: 10px;
   text-decoration: none;
   transition: all ${({ theme }) => theme.transitions.fast};
-  &:hover { background: #b3682f; }
+  &:hover { background: #333333; }
 `
 
 const Footer = styled.footer`
@@ -274,12 +277,10 @@ const Footer = styled.footer`
   border-top: 0.5px solid rgba(255,255,255,0.06);
 `
 
-const FooterLogo = styled.span`
-  font-size: 15px;
-  font-weight: 500;
-  color: #ffffff;
-  letter-spacing: -0.03em;
-  span { color: ${({ theme }) => theme.colors.accent}; }
+const FooterLogo = styled.img`
+  display: block;
+  height: 28px;
+  width: auto;
 `
 
 const FooterLinksWrap = styled.div`
@@ -306,7 +307,9 @@ export default function About() {
   return (
     <div>
       <Nav>
-        <Logo to="/">{BRAND_NAME.slice(0, 6)}<span>{BRAND_NAME.slice(6)}</span></Logo>
+        <Logo to="/" aria-label="Rang">
+          <img src="/src/assets/rang_logo.png" alt="Rang" />
+        </Logo>
         <NavLinks>
           <NavLink to="/about">About</NavLink>
           <NavLink to="/pricing">Pricing</NavLink>
@@ -408,7 +411,7 @@ export default function About() {
           <ValuesGrid>
             <ValueCard>
               <ValueTitle>Personalization over popularity</ValueTitle>
-)
+
               <ValueText>
                 What looks good on someone else does not always look good on you.
                 Skin tone, depth, and undertone change everything.
@@ -458,7 +461,7 @@ export default function About() {
       </Page>
 
       <Footer>
-        <FooterLogo>{BRAND_NAME.slice(0, 6)}<span>{BRAND_NAME.slice(6)}</span></FooterLogo>
+        <FooterLogo src="/src/assets/rang_dark.png" alt="Rang" />
         <FooterLinksWrap>
           <FooterLink to="/about">About</FooterLink>
           <FooterLink to="/pricing">Pricing</FooterLink>
