@@ -1,6 +1,6 @@
 # Data Retention & AI Data Usage Policy
 
-**Assortir**
+**Rang**
 Last updated: March 19, 2026
 
 ---
@@ -54,7 +54,7 @@ In the event of a data breach affecting your personal data, we will:
 
 ### 2.1 What AI System We Use
 
-Assortir uses Claude (by Anthropic PBC) via their API to generate outfit recommendations. Each recommendation request sends data to Anthropic's servers in the United States.
+Rang uses Claude (by Anthropic PBC) via their API to generate outfit recommendations. Each recommendation request sends data to Anthropic's servers in the United States.
 
 ### 2.2 What We Send to Claude
 
@@ -77,7 +77,7 @@ Every time you request a recommendation, we send:
 
 ### 2.3 Anthropic's Use of API Data
 
-When you use Assortir, data sent to Claude is processed by Anthropic under their API terms. Anthropic states they do not use API data to train their models by default. You can review Anthropic's privacy policy at anthropic.com/privacy.
+When you use Rang, data sent to Claude is processed by Anthropic under their API terms. Anthropic states they do not use API data to train their models by default. You can review Anthropic's privacy policy at anthropic.com/privacy.
 
 ### 2.4 Our Own AI Improvement Program
 
@@ -108,7 +108,7 @@ You can opt out of contributing to our AI improvement program at any time.
 1. Go to Settings → Privacy
 2. Toggle off "Contribute to AI improvement"
 
-Or email: contact@assortir.app with subject "AI Training Opt-Out"
+Or email: outercirclelabs@gmail.com with subject "AI Training Opt-Out"
 
 **Effect of opting out:**
 - Your data will not be included in any future analysis
@@ -147,7 +147,7 @@ If we introduce new AI features that require different data usage, we will:
 
 ### 3.2 Data Export
 
-You can request a complete export of your personal data at any time. Email contact@assortir.app with subject "Data Export Request." We will provide your data in JSON format within 30 days.
+You can request a complete export of your personal data at any time. Email outercirclelabs@gmail.com with subject "Data Export Request." We will provide your data in JSON format within 30 days.
 
 ---
 
@@ -155,11 +155,11 @@ You can request a complete export of your personal data at any time. Email conta
 
 For any questions about data retention or AI data usage:
 
-**Email:** contact@assortir.app
+**Email:** outercirclelabs@gmail.com
 **Subject line:** "Data Policy Question"
 **Response time:** Within 30 days
 
 **Grievance Officer (India — DPDP Act 2023):**
 Sachin Rathod
-contact@assortir.app
+outercirclelabs@gmail.com
 Gandhinagar, Gujarat, India

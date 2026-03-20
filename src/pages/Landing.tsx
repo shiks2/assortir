@@ -25,11 +25,11 @@ const Nav = styled.nav`
   background:rgba(10,10,10,0.88);backdrop-filter:blur(12px);
   border-bottom:0.5px solid rgba(255,255,255,0.08);
 `
-const NavLogo = styled(Link)`font-size:18px;font-weight:500;color:#fff;letter-spacing:-0.03em;text-decoration:none;span{color:#C4733A;}`
+const NavLogo = styled(Link)`display:inline-flex;align-items:center;text-decoration:none;img{display:block;height:28px;width:auto;}`
 const NavLinks = styled.div`display:flex;align-items:center;gap:8px;`
 const NavLink = styled(Link) <{ $primary?: boolean }>`
   font-size:13px;font-weight:500;padding:7px 16px;border-radius:8px;text-decoration:none;transition:all 0.15s ease;
-  ${({ $primary }) => $primary ? `background:#C4733A;color:#fff;&:hover{background:#b3682f;}` : `color:rgba(255,255,255,0.7);&:hover{color:#fff;background:rgba(255,255,255,0.08);}`}
+  ${({ $primary }) => $primary ? `background:#1a1a1a;color:#fff;&:hover{background:#333333;}` : `color:rgba(255,255,255,0.7);&:hover{color:#fff;background:rgba(255,255,255,0.08);}`}
 `
 
 const Hero = styled.section`
@@ -38,17 +38,17 @@ const Hero = styled.section`
   position:relative;overflow:hidden;
   &::before{content:'';position:absolute;top:-200px;left:50%;transform:translateX(-50%);
     width:600px;height:600px;
-    background:radial-gradient(circle,rgba(196,115,58,0.15) 0%,transparent 70%);pointer-events:none;}
+    background:radial-gradient(circle,rgba(255,255,255,0.03) 0%,transparent 70%);pointer-events:none;}
 `
 const HeroBadge = styled.div`
   display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:500;
-  color:#C4733A;background:rgba(196,115,58,0.12);border:0.5px solid rgba(196,115,58,0.3);
+  color:#fff;background:rgba(255,255,255,0.03);border:0.5px solid rgba(255,255,255,0.15);
   border-radius:20px;padding:5px 14px;margin-bottom:28px;animation:${fadeIn} 0.6s ease forwards;
 `
 const HeroHeadline = styled.h1`
   font-size:clamp(40px,7vw,72px);font-weight:500;color:#fff;letter-spacing:-0.03em;
   line-height:1.1;margin-bottom:20px;animation:${fadeUp} 0.7s ease 0.1s both;
-  span{color:#C4733A;}
+  span{color:#1a1a1a;}
 `
 const HeroSub = styled.p`
   font-size:clamp(15px,2vw,18px);color:rgba(255,255,255,0.55);line-height:1.6;
@@ -67,12 +67,12 @@ const HeroMockup = styled.div`
   box-shadow: 0 20px 40px rgba(0,0,0,0.4);
   border: 0.5px solid rgba(255,255,255,0.1);
   animation: ${fadeUp} 0.8s ease 0.4s both;
-  img { width: 100%; display: block; }
+  video { width: 100%; display: block; }
 `
 const CTAPrimary = styled(Link)`
   display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:500;
-  padding:12px 24px;background:#C4733A;color:#fff;border-radius:10px;text-decoration:none;
-  transition:all 0.15s ease;&:hover{background:#b3682f;transform:translateY(-1px);}
+  padding:12px 24px;background:#1a1a1a;color:#fff;border-radius:10px;text-decoration:none;
+  transition:all 0.15s ease;&:hover{background:#333333;transform:translateY(-1px);}
 `
 const HeroNote = styled.p`font-size:12px;color:rgba(255,255,255,0.3);margin-top:16px;animation:${fadeUp} 0.7s ease 0.4s both;`
 
@@ -83,10 +83,10 @@ const DemoStrip = styled.div`
 const DemoFlow = styled.div`display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;padding:0 24px;`
 const DemoStep = styled.div`display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,0.5);white-space:nowrap;`
 const DemoArrow = styled.span`color:rgba(255,255,255,0.2);font-size:16px;`
-const DemoHighlight = styled.span`color:#C4733A;font-weight:500;`
+const DemoHighlight = styled.span`color:#1a1a1a;font-weight:500;`
 
 const Section = styled.section<{ $bg?: string }>`background:${({ $bg }) => $bg || '#fff'};padding:80px 0;`
-const SectionTag = styled.div`display:inline-block;font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.1em;color:#C4733A;margin-bottom:12px;`
+const SectionTag = styled.div`display:inline-block;font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.1em;color:#1a1a1a;margin-bottom:12px;`
 const SectionHeadline = styled.h2`font-size:clamp(26px,4vw,40px);font-weight:500;color:#1a1a1a;letter-spacing:-0.02em;line-height:1.2;margin-bottom:16px;`
 const SectionSub = styled.p`font-size:16px;color:#6b6b6b;line-height:1.7;margin-bottom:48px;`
 
@@ -114,7 +114,7 @@ const StepsGrid = styled.div`
 `
 const StepCard = styled.div`padding:28px 24px;background:#faf9f7;border-radius:12px;`
 const StepNumber = styled.div`
-  width:32px;height:32px;border-radius:8px;background:#C4733A;color:#fff;
+  width:32px;height:32px;border-radius:8px;background:#1a1a1a;color:#fff;
   font-size:13px;font-weight:500;display:flex;align-items:center;justify-content:center;margin-bottom:16px;
 `
 const StepTitle = styled.h3`font-size:15px;font-weight:500;color:#1a1a1a;margin-bottom:8px;`
@@ -122,7 +122,7 @@ const StepText = styled.p`font-size:13px;color:#6b6b6b;line-height:1.6;`
 
 const FeatureCard = styled.div`
   padding:20px;border:0.5px solid #f0ede8;border-radius:12px;background:#fff;
-  transition:border-color 0.15s ease;&:hover{border-color:#C4733A;}
+  transition:border-color 0.15s ease;&:hover{border-color:#1a1a1a;}
 `
 const FeatureIcon = styled.div`
   width:32px;height:32px;display:flex;align-items:center;justify-content:center;
@@ -143,7 +143,7 @@ const MicroCTA = styled.div`
 const LinkCTA = styled(Link)`
   font-size: 14px;
   font-weight: 600;
-  color: #C4733A;
+  color: #1a1a1a;
   text-decoration: none;
   display: flex;
   align-items: center;
@@ -209,7 +209,7 @@ const Footer = styled.footer`
   border-top:0.5px solid rgba(255,255,255,0.06);
   @media(max-width:640px){flex-direction:column;gap:12px;text-align:center;}
 `
-const FooterLogo = styled.span`font-size:16px;font-weight:500;color:#fff;letter-spacing:-0.03em;span{color:#C4733A;}`
+const FooterLogo = styled.img`display:block;height:28px;width:auto;`
 const FooterMeta = styled.div`display:flex;flex-direction:column;align-items:flex-end;gap:4px;@media(max-width:640px){align-items:center;}`
 const FooterText = styled.p`font-size:12px;color:rgba(255,255,255,0.25);`
 const FooterOuterLab = styled.p`
@@ -279,7 +279,9 @@ export default function Landing() {
   return (
     <div>
       <Nav>
-        <NavLogo to="/">{BRAND_NAME.slice(0, 6)}<span>{BRAND_NAME.slice(6)}</span></NavLogo>
+        <NavLogo to="/" aria-label="Rang">
+          <img src="/src/assets/rang_dark.png" alt="Rang" />
+        </NavLogo>
         <NavLinks>
           <NavLink to="/about">About</NavLink>
           <NavLink to="/pricing">Pricing</NavLink>
@@ -304,7 +306,9 @@ export default function Landing() {
         <HeroNote>No subscription required. Upgrade only if you love it.</HeroNote>
         
         <HeroMockup>
-          <img src="/product_screenshot.png" alt="Assortir Styling Recommendation" />
+          <video autoPlay muted loop playsInline>
+            <source src="/src/assets/rang_dark_animate.mp4" type="video/mp4" />
+          </video>
         </HeroMockup>
       </Hero>
 
@@ -324,7 +328,7 @@ export default function Landing() {
         <Narrow>
           <SectionTag>The problem</SectionTag>
           <SectionHeadline>Shopping is simple. Styling is difficult.</SectionHeadline>
-          <SectionSub>Most fashion advice is for someone else. Assortir is built for you.</SectionSub>
+          <SectionSub>Most fashion advice is for someone else. Rang is built for you.</SectionSub>
         </Narrow>
         <Container>
           <ProblemGrid>
@@ -419,7 +423,7 @@ export default function Landing() {
         </Narrow>
         <Container>
           <FeaturedRow>
-            <FeatureCard style={{ border: '2px solid #C4733A' }}>
+            <FeatureCard style={{ border: '2px solid #1a1a1a' }}>
               <FeatureIcon><IconColor /></FeatureIcon>
               <FeatureTitle>Seasonal color analysis</FeatureTitle>
               <FeatureText>Spring, summer, autumn, and winter. Recommendations based on your exact undertone and skin depth.</FeatureText>
@@ -431,12 +435,12 @@ export default function Landing() {
                 <ToneCircle $color="#4B311E" />
               </SkinToneRow>
             </FeatureCard>
-            <FeatureCard style={{ border: '2px solid #C4733A' }}>
+            <FeatureCard style={{ border: '2px solid #1a1a1a' }}>
               <FeatureIcon><IconWeather /></FeatureIcon>
               <FeatureTitle>Weather-aware styling</FeatureTitle>
               <FeatureText>Real-time weather checks. If it is 39°C in Ahmedabad, we will not suggest velvet or heavy layers.</FeatureText>
             </FeatureCard>
-            <FeatureCard style={{ border: '2px solid #C4733A' }}>
+            <FeatureCard style={{ border: '2px solid #1a1a1a' }}>
               <FeatureIcon><IconBlock /></FeatureIcon>
               <FeatureTitle>Fabric blacklist tool</FeatureTitle>
               <FeatureText>Dislike polyester? Allergic to wool? Tell us once, and we will never suggest those materials again.</FeatureText>
@@ -480,7 +484,7 @@ export default function Landing() {
 
       <ProofSection>
         <Narrow>
-          <SectionTag style={{ color: '#C4733A' }}>Early users</SectionTag>
+          <SectionTag style={{ color: '#1a1a1a' }}>Early users</SectionTag>
           <SectionHeadline style={{ color: '#fff' }}>User feedback</SectionHeadline>
         </Narrow>
         <Container>
@@ -518,7 +522,7 @@ export default function Landing() {
       </FinalCTA>
 
       <Footer>
-        <FooterLogo>{BRAND_NAME.slice(0, 6)}<span>{BRAND_NAME.slice(6)}</span></FooterLogo>
+        <FooterLogo src="/src/assets/rang_dark.png" alt="Rang" />
         <FooterMeta>
           <FooterLinks>
             <FooterLink to="/about">About</FooterLink>

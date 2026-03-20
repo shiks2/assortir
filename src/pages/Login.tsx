@@ -6,7 +6,6 @@ import {
   AuthFooter, FormGroup, FieldLabel, Input, Button, ButtonOutline,
   ErrorMessage, Stack, DividerText, Heading, Label,
 } from '../components/index'
-import { BRAND_NAME } from '../constants'
 
 export default function Login() {
   const { signIn } = useAuth()
@@ -38,7 +37,9 @@ export default function Login() {
       <CenteredContainer>
         <AuthCard>
           <AuthHeader>
-            <AuthLogo to="/">{BRAND_NAME.slice(0, 6)}<span>{BRAND_NAME.slice(6)}</span></AuthLogo>
+            <AuthLogo to="/" aria-label="Rang">
+              <img src="/src/assets/rang_logo.png" alt="Rang" />
+            </AuthLogo>
             <Heading>Welcome back</Heading>
             <Label style={{ marginTop: 6 }}>Your personal AI stylist</Label>
           </AuthHeader>

@@ -186,10 +186,10 @@ const FeedbackBtn = styled.button<{ $active?: boolean; $positive?: boolean }>`
 const COLOR_MAP: Record<string, string> = {
   white: '#ffffff', black: '#1a1a1a', navy: '#1B2A4A', olive: '#6B7A3E',
   beige: '#D4C5A9', grey: '#9b9b9b', gray: '#9b9b9b', brown: '#7C5C3A',
-  terracotta: '#C4733A', mustard: '#C9A84C', rust: '#A0522D', blue: '#378ADD',
+  terracotta: '#1a1a1a', mustard: '#C9A84C', rust: '#A0522D', blue: '#378ADD',
   green: '#639922', red: '#E24B4A', pink: '#D4537E', camel: '#C19A6B',
   coral: '#E8735A', cobalt: '#185FA5', emerald: '#1D9E75', burgundy: '#722F37',
-  sage: '#87A87B', dusty: '#7B9EC4', warm: '#C4733A', deep: '#444',
+  sage: '#87A87B', dusty: '#7B9EC4', warm: '#1a1a1a', deep: '#444',
 }
 
 function getColorHex(colorName: string): string {

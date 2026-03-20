@@ -1,5 +1,5 @@
 // ============================================================
-// ASSORTIR — Design System Tokens
+// RANG — Design System Tokens
 // ============================================================
 
 export const theme = {
@@ -7,12 +7,12 @@ export const theme = {
     // Brand
     primary: '#1a1a1a',
     primaryHover: '#333333',
-    accent: '#C4733A',       // warm terracotta — Assortir brand color
+    accent: '#1a1a1a',
 
     // Backgrounds
     bg: '#ffffff',
-    bgSecondary: '#f8f7f5',
-    bgTertiary: '#f2f0ec',
+    bgSecondary: '#f5f4f2',
+    bgTertiary: '#f0ede8',
 
     // Text
     text: '#1a1a1a',
@@ -21,8 +21,8 @@ export const theme = {
     textInverse: '#ffffff',
 
     // Borders
-    border: 'rgba(0,0,0,0.08)',
-    borderHover: 'rgba(0,0,0,0.15)',
+    border: '#f0ede8',
+    borderHover: '#f5f4f2',
 
     // Semantic
     success: '#27500A',

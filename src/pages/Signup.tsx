@@ -7,8 +7,6 @@ import {
   ErrorMessage, Stack, Heading, Label, Row,
 } from '../components/index'
 
-import { BRAND_NAME } from '../constants'
-
 export default function Signup() {
   const { signUp } = useAuth()
   const navigate = useNavigate()
@@ -41,7 +39,9 @@ export default function Signup() {
       <CenteredContainer>
         <AuthCard>
           <AuthHeader>
-            <AuthLogo to="/">{BRAND_NAME.slice(0, 6)}<span>{BRAND_NAME.slice(6)}</span></AuthLogo>
+            <AuthLogo to="/" aria-label="Rang">
+              <img src="/src/assets/rang_logo.png" alt="Rang" />
+            </AuthLogo>
             <Heading>Create account</Heading>
             <Label style={{ marginTop: 6 }}>
               Set up your profile and get styled in minutes

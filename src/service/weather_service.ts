@@ -232,7 +232,7 @@ export function buildWeatherContext(
     const { temp, feels_like, humidity, condition, forecast } = weather
 
     // Fabric advice based on actual conditions
-    // This is what makes Assortir genuinely useful — real-time fabric logic
+    // This is what makes Rang genuinely useful — real-time fabric logic
     let fabric_advice = ''
 
     if (temp >= 38) {
