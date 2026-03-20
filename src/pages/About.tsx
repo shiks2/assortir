@@ -408,7 +408,7 @@ export default function About() {
           <ValuesGrid>
             <ValueCard>
               <ValueTitle>Personalization over popularity</ValueTitle>
-)
+
               <ValueText>
                 What looks good on someone else does not always look good on you.
                 Skin tone, depth, and undertone change everything.
