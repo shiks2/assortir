@@ -22,12 +22,15 @@ const Nav = styled.nav`
 `
 
 const Logo = styled(Link)`
-  font-size: 17px;
-  font-weight: 500;
-  color: ${({ theme }) => theme.colors.text};
-  letter-spacing: -0.03em;
+  display: inline-flex;
+  align-items: center;
   text-decoration: none;
-  span { color: ${({ theme }) => theme.colors.accent}; }
+
+  img {
+    display: block;
+    height: 28px;
+    width: auto;
+  }
 `
 
 const NavLinks = styled.div`
@@ -46,7 +49,7 @@ const NavLink = styled(Link)<{ $primary?: boolean }>`
   ${({ $primary, theme }) => $primary ? `
     background: ${theme.colors.accent};
     color: #ffffff;
-    &:hover { background: #b3682f; }
+    &:hover { background: #333333; }
   ` : `
     color: ${theme.colors.textSecondary};
     &:hover { color: ${theme.colors.text}; background: ${theme.colors.bgSecondary}; }
@@ -255,12 +258,10 @@ const Footer = styled.footer`
   border-top: 0.5px solid rgba(255,255,255,0.06);
 `
 
-const FooterLogo = styled.span`
-  font-size: 15px;
-  font-weight: 500;
-  color: #ffffff;
-  letter-spacing: -0.03em;
-  span { color: ${({ theme }) => theme.colors.accent}; }
+const FooterLogo = styled.img`
+  display: block;
+  height: 28px;
+  width: auto;
 `
 
 const FooterLinksWrap = styled.div`
@@ -342,7 +343,9 @@ export default function Contact() {
   return (
     <div>
       <Nav>
-        <Logo to="/">{BRAND_NAME.slice(0, 6)}<span>{BRAND_NAME.slice(6)}</span></Logo>
+        <Logo to="/" aria-label="Rang">
+          <img src="/src/assets/rang_logo.png" alt="Rang" />
+        </Logo>
         <NavLinks>
           <NavLink to="/about">About</NavLink>
           <NavLink to="/pricing">Pricing</NavLink>
@@ -452,7 +455,7 @@ export default function Contact() {
       </ContactPage>
 
       <Footer>
-        <FooterLogo>{BRAND_NAME.slice(0, 6)}<span>{BRAND_NAME.slice(6)}</span></FooterLogo>
+        <FooterLogo src="/src/assets/rang_dark.png" alt="Rang" />
         <FooterLinksWrap>
           <FooterLink to="/about">About</FooterLink>
           <FooterLink to="/pricing">Pricing</FooterLink>

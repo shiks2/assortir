@@ -2,7 +2,7 @@ import styled, { keyframes } from 'styled-components'
 import { Link } from 'react-router-dom'
 
 // ============================================================
-// ASSORTIR — Shared Components
+// RANG — Shared Components
 // src/components/index.tsx
 // ============================================================
 
@@ -49,11 +49,15 @@ const NavBar = styled.nav`
 `
 
 const LogoText = styled(Link)`
-  font-size: 17px;
-  font-weight: 500;
-  color: ${({ theme }) => theme.colors.text};
-  letter-spacing: -0.03em;
-  span { color: ${({ theme }) => theme.colors.accent}; }
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+
+  img {
+    display: block;
+    height: 28px;
+    width: auto;
+  }
 `
 
 const NavRight = styled.div`
@@ -90,13 +94,13 @@ const Avatar = styled.div`
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background: #FAECE7;
+  background: #f5f4f2;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 11px;
   font-weight: 500;
-  color: #712B13;
+  color: #1a1a1a;
   cursor: pointer;
   flex-shrink: 0;
 `
@@ -116,7 +120,9 @@ export function Navbar({ activePage, isPro, queriesRemaining, userName, onAvatar
 
   return (
     <NavBar>
-      <LogoText to="/home">{BRAND_NAME.slice(0, 6)}  <span>{BRAND_NAME.slice(6)}</span></LogoText>
+      <LogoText to="/home" aria-label={BRAND_NAME}>
+        <img src="/src/assets/rang_logo.png" alt={BRAND_NAME} />
+      </LogoText>
       <NavRight>
         <NavLinks>
           <NavLink to="/home" $active={activePage === 'home'}>Style</NavLink>
@@ -175,7 +181,7 @@ type TagVariant = 'auth' | 'home' | 'result' | 'history' | 'settings' | 'onboard
 const tagColors: Record<TagVariant, { bg: string; color: string }> = {
   auth:     { bg: '#EAF3DE', color: '#27500A' },
   home:     { bg: '#E6F1FB', color: '#0C447C' },
-  result:   { bg: '#FAECE7', color: '#712B13' },
+  result:   { bg: '#f5f4f2', color: '#1a1a1a' },
   history:  { bg: '#EEEDFE', color: '#3C3489' },
   settings: { bg: '#F1EFE8', color: '#444441' },
   onboard:  { bg: '#FBEAF0', color: '#72243E' },
@@ -449,13 +455,16 @@ export const AuthHeader = styled.div`
 `
 
 export const AuthLogo = styled(Link)`
-  display: inline-block;
-  font-size: 22px;
-  font-weight: 500;
-  color: ${({ theme }) => theme.colors.text};
-  letter-spacing: -0.03em;
+  display: inline-flex;
+  align-items: center;
   margin-bottom: 20px;
-  span { color: ${({ theme }) => theme.colors.accent}; }
+  text-decoration: none;
+
+  img {
+    display: block;
+    height: 28px;
+    width: auto;
+  }
 `
 
 export const AuthFooter = styled.p`

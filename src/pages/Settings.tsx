@@ -28,13 +28,13 @@ const Avatar = styled.div`
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: #FAECE7;
+  background: #f5f4f2;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 15px;
   font-weight: 500;
-  color: #712B13;
+  color: #1a1a1a;
   flex-shrink: 0;
 `
 
@@ -340,7 +340,7 @@ export default function Settings() {
 
             {!isPro && (
               <Button
-                style={{ background: '#C4733A' }}
+                style={{ background: '#1a1a1a' }}
                 onClick={() => alert('Lemon Squeezy payment — coming soon!')}
               >
                 Upgrade to Pro — ₹199/month

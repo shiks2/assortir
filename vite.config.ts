@@ -10,10 +10,10 @@ export default defineConfig({
     host: true, // Allows external access
     port: 5173, // Or your desired port
     allowedHosts: [
-      'assortir.in',
-      'www.assortir.in',
-      'assortir.in.ngrok-free.dev',
-      'www.assortir.in.ngrok-free.dev',
+      'rang.in',
+      'www.rang.in',
+      'rang.in.ngrok-free.dev',
+      'www.rang.in.ngrok-free.dev',
       'b8b6-2405-201-2020-61-5ad-241b-972c-109c.ngrok-free.app'
     ]
   },

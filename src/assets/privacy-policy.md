@@ -1,6 +1,6 @@
 # Privacy Policy
 
-**Assortir**
+**Rang**
 Last updated: March 19, 2026
 Effective date: March 19, 2026
 
@@ -8,12 +8,12 @@ Effective date: March 19, 2026
 
 ## 1. Who We Are
 
-Assortir ("we," "us," "our") is an AI-powered personal styling application built and operated by Sachin Rathod, based in Gandhinagar, Gujarat, India.
+Rang ("we," "us," "our") is an AI-powered personal styling application built and operated by Sachin Rathod, based in Gandhinagar, Gujarat, India.
 
 **Data Controller:**
 Sachin Rathod
 Gandhinagar, Gujarat, India
-contact@assortir.app
+outercirclelabs@gmail.com
 
 **Data Storage Location:**
 Your data is stored on servers located in Frankfurt, Germany (European Union), operated by Supabase Inc. This means your data is subject to EU data protection standards regardless of where you are located.
@@ -148,7 +148,7 @@ We do NOT send: your name, email, user ID, or any identifying information to Ant
 We do not sell, rent, or trade your personal data to any third party for any purpose.
 
 ### 5.4 Business Transfers
-If Assortir is acquired or merges with another company, your data may be transferred. We will notify you by email at least 30 days before any such transfer.
+If Rang is acquired or merges with another company, your data may be transferred. We will notify you by email at least 30 days before any such transfer.
 
 ---
 
@@ -185,10 +185,10 @@ When you delete your account, all personal data is permanently deleted within 30
 
 ### 7.3 For Indian Users (DPDP Act 2023)
 - **Correction and Erasure**: As provided under the Digital Personal Data Protection Act 2023
-- **Grievance Redressal**: Contact our grievance officer at contact@assortir.app
+- **Grievance Redressal**: Contact our grievance officer at outercirclelabs@gmail.com
 
 ### 7.4 How to Exercise Your Rights
-Email us at contact@assortir.app with subject line "Data Request — [Your Right]"
+Email us at outercirclelabs@gmail.com with subject line "Data Request — [Your Right]"
 We will respond within 30 days. We may ask you to verify your identity before processing the request.
 
 ---
@@ -202,7 +202,7 @@ We may use anonymized and aggregated usage data to improve our styling recommend
 2. Scroll to "Privacy"
 3. Toggle off "Contribute to AI improvement"
 
-Or email us at contact@assortir.app with subject "AI Training Opt-Out"
+Or email us at outercirclelabs@gmail.com with subject "AI Training Opt-Out"
 
 Opting out does not affect your use of the service in any way.
 
@@ -234,7 +234,7 @@ We do not use advertising cookies, tracking pixels, or third-party analytics coo
 
 ## 11. Children
 
-Assortir is not intended for users under 13 years of age. We do not knowingly collect data from children under 13. If you believe we have collected data from a child under 13, contact us immediately at contact@assortir.app.
+Rang is not intended for users under 13 years of age. We do not knowingly collect data from children under 13. If you believe we have collected data from a child under 13, contact us immediately at outercirclelabs@gmail.com.
 
 ---
 
@@ -246,8 +246,8 @@ We will notify you of material changes by email at least 14 days before they tak
 
 ## 13. Contact
 
-**Privacy questions:** contact@assortir.app
-**Grievance Officer (India):** Sachin Rathod, contact@assortir.app
+**Privacy questions:** outercirclelabs@gmail.com
+**Grievance Officer (India):** Sachin Rathod, outercirclelabs@gmail.com
 **Response time:** Within 30 days
 
 For EU users, you have the right to lodge a complaint with your national Data Protection Authority. In Germany, this is the Bundesbeauftragte für den Datenschutz und die Informationsfreiheit (BfDI).
