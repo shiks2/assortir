@@ -9,6 +9,7 @@ import {
   StepDots, StepDot, Row, Spinner,
 } from '../components'
 import styled from 'styled-components'
+import { Popover } from '../components/ui'
 
 import { FOUNDER_NAME } from '../constants'
 
@@ -22,6 +23,24 @@ const StepFooter = styled.div`
   display: flex;
   gap: 8px;
   margin-top: 24px;
+`
+
+const LabelRow = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 6px;
+`
+
+const HelpButton = styled.button`
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 0.5px solid ${({ theme }) => theme.colors.border};
+  background: ${({ theme }) => theme.colors.bgSecondary};
+  color: ${({ theme }) => theme.colors.textSecondary};
+  font-size: 11px;
+  line-height: 1;
+  cursor: pointer;
 `
 
 // ─── Step data ────────────────────────────────────────────────
@@ -213,7 +232,16 @@ export default function Onboarding() {
       </StepHeader>
 
       <FormGroup>
-        <FieldLabel>Undertone</FieldLabel>
+        <LabelRow>
+          <FieldLabel style={{ marginBottom: 0 }}>Undertone</FieldLabel>
+          <Popover
+            title="How to find your undertone"
+            content="Look at the veins on your inner wrist. Blue or purple usually means cool, green usually means warm, and a mix suggests neutral."
+            placement="right"
+          >
+            <HelpButton type="button" aria-label="Undertone help">?</HelpButton>
+          </Popover>
+        </LabelRow>
         <Label style={{ marginBottom: 8, fontSize: '12px' }}>
           Check your wrist veins — green = warm, blue/purple = cool
         </Label>

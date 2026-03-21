@@ -1,5 +1,7 @@
 import styled, { keyframes } from 'styled-components'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { useAuth } from '../context/AuthContext'
+import { DropdownMenu } from './ui'
 
 // ============================================================
 // RANG — Shared Components
@@ -90,7 +92,7 @@ const PlanBadge = styled.span<{ $pro?: boolean }>`
   color: ${({ $pro, theme }) => $pro ? theme.colors.proText : theme.colors.freeText};
 `
 
-const Avatar = styled.div`
+const Avatar = styled.button`
   width: 30px;
   height: 30px;
   border-radius: 50%;
@@ -103,6 +105,7 @@ const Avatar = styled.div`
   color: #1a1a1a;
   cursor: pointer;
   flex-shrink: 0;
+  border: none;
 `
 
 interface NavbarProps {
@@ -114,9 +117,41 @@ interface NavbarProps {
 }
 
 export function Navbar({ activePage, isPro, queriesRemaining, userName, onAvatarClick }: NavbarProps) {
+  const navigate = useNavigate()
+  const { signOut } = useAuth()
+
   const initials = userName
     ? userName.split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2)
     : 'ME'
+
+  const profileMenuItems = [
+    {
+      label: 'Settings',
+      onClick: () => {
+        if (onAvatarClick) {
+          onAvatarClick()
+        } else {
+          navigate('/settings')
+        }
+      },
+    },
+    {
+      label: 'History',
+      onClick: () => navigate('/history'),
+    },
+    {
+      label: 'Upgrade to Pro',
+      onClick: () => navigate('/pricing'),
+    },
+    {
+      label: 'Sign out',
+      onClick: () => {
+        void signOut()
+      },
+      danger: true,
+      dividerBefore: true,
+    },
+  ]
 
   return (
     <NavBar>
@@ -135,7 +170,9 @@ export function Navbar({ activePage, isPro, queriesRemaining, userName, onAvatar
             {isPro ? 'Pro' : `Free · ${queriesRemaining} left`}
           </PlanBadge>
         )}
-        <Avatar onClick={onAvatarClick}>{initials}</Avatar>
+        <DropdownMenu items={profileMenuItems} placement="bottom-end">
+          <Avatar type="button" aria-label="Open profile menu">{initials}</Avatar>
+        </DropdownMenu>
       </NavRight>
     </NavBar>
   )

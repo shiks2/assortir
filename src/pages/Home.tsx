@@ -11,6 +11,13 @@ import {
   Divider, Row, Spinner,
 } from '../components/index'
 import styled from 'styled-components'
+import {
+  requestLocationPermission,
+  getCurrentPosition,
+  fetchWeatherData,
+  type WeatherData,
+} from '../service/weather_service'
+import { formatWeatherTime, getCurrentMonthLabel } from '../utils/dateUtils'
 
 // ─── Styled ───────────────────────────────────────────────────
 
@@ -27,6 +34,12 @@ const TwoCol = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 8px;
+`
+
+const WeatherBadge = styled.div`
+  margin-top: 10px;
+  font-size: 12px;
+  color: ${({ theme }) => theme.colors.textTertiary};
 `
 
 // ─── Constants ────────────────────────────────────────────────
@@ -57,6 +70,9 @@ export default function Home() {
   const [intent, setIntent] = useState<Intent>('outfit_only')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [weather, setWeather] = useState<WeatherData | null>(null)
+
+  const monthLabel = getCurrentMonthLabel()
 
   const canSubmit = Boolean(itemType && itemColor && itemMaterial && itemFit)
   const outOfQueries = !isPro && queriesRemaining <= 0
@@ -73,6 +89,27 @@ export default function Home() {
       })
     }
   }, [itemType, itemColor, itemMaterial, itemFit, canSubmit])
+
+  useEffect(() => {
+    let mounted = true
+
+    async function syncWeather() {
+      const permission = await requestLocationPermission()
+      if (!permission.granted) return
+
+      const coords = await getCurrentPosition(permission)
+      const weatherResult = await fetchWeatherData(coords)
+      if (mounted && weatherResult.success) {
+        setWeather(weatherResult.weather)
+      }
+    }
+
+    syncWeather()
+
+    return () => {
+      mounted = false
+    }
+  }, [])
 
   async function handleSubmit() {
     if (!canSubmit || !user) return
@@ -145,6 +182,9 @@ export default function Home() {
             <Label style={{ marginTop: 6 }}>
               Tell us about the item and we'll complete the outfit
             </Label>
+            <WeatherBadge>
+              {weather ? formatWeatherTime(weather.fetched_at) : `Usage month: ${monthLabel}`}
+            </WeatherBadge>
           </PageHeader>
 
           <Stack $gap="12px" style={{ marginBottom: 16 }}>

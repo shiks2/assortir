@@ -7,6 +7,7 @@ import { useState } from 'react'
 import styled, { keyframes } from 'styled-components'
 import { Link } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
+import { getCurrentMonthLabel, getResetDate } from '../utils/dateUtils'
 
 // ─── Types ────────────────────────────────────────────────────
 
@@ -365,19 +366,17 @@ export function QueryLimitBanner() {
   const used = usage?.query_count ?? 0
   const progressValue = monthlyLimit > 0 ? Math.round((used / monthlyLimit) * 100) : 0
 
-  // Reset day — first of next month
-  const now = new Date()
-  const resetDate = new Date(now.getFullYear(), now.getMonth() + 1, 1)
-  const resetDay = resetDate.toLocaleDateString('en-IN', { day: 'numeric', month: 'long' })
+  const monthLabel = getCurrentMonthLabel()
+  const resetText = getResetDate()
 
   if (queriesRemaining === 0) {
     return (
       <Banner
         variant="danger"
         title="No recommendations left this month"
-        subtitle={`Resets on ${resetDay}. Upgrade to Pro for 50 per month.`}
+        subtitle={`${resetText}. Upgrade to Pro for 50 per month.`}
         primaryAction={{ label: 'Upgrade to Pro', to: '/pricing' }}
-        secondaryAction={{ label: `Wait until ${resetDay}`, onClick: () => setDismissed(true) }}
+        secondaryAction={{ label: `Wait (${monthLabel})`, onClick: () => setDismissed(true) }}
         dismissible={false}
       />
     )
@@ -388,7 +387,7 @@ export function QueryLimitBanner() {
       <Banner
         variant="warning"
         title={`${queriesRemaining} recommendation${queriesRemaining === 1 ? '' : 's'} left this month`}
-        subtitle={`Resets on ${resetDay}. Upgrade for 50 per month.`}
+        subtitle={`${resetText}. Upgrade for 50 per month.`}
         primaryAction={{ label: 'Upgrade', to: '/pricing' }}
         dismissible
         onDismiss={() => setDismissed(true)}

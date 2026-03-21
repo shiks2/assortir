@@ -9,6 +9,7 @@ import {
   ButtonOutline, Spinner, ErrorMessage,
 } from '../components'
 import styled from 'styled-components'
+import { Tooltip } from '../components/ui'
 
 // ─── Styled ───────────────────────────────────────────────────
 
@@ -53,6 +54,19 @@ const RecMeta = styled.p`
   font-size: ${({ theme }) => theme.typography.sm};
   color: ${({ theme }) => theme.colors.textSecondary};
   margin-bottom: 6px;
+`
+
+const InfoIcon = styled.span`
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 0.5px solid ${({ theme }) => theme.colors.border};
+  color: ${({ theme }) => theme.colors.textTertiary};
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  line-height: 1;
 `
 
 const RecWhy = styled.p`
@@ -326,7 +340,12 @@ export default function Result() {
                   {rec.color} {rec.type}
                 </RecTitle>
                 <RecMeta>{rec.material} · {rec.fit} · {rec.style_vibe}</RecMeta>
-                <RecWhy>{rec.why_it_works}</RecWhy>
+                <RecWhy>
+                  {rec.why_it_works}{' '}
+                  <Tooltip content="Explanation generated from color, fit, and occasion rules.">
+                    <InfoIcon aria-label="Why this works info">i</InfoIcon>
+                  </Tooltip>
+                </RecWhy>
                 <SkinNote>{rec.skin_tone_note}</SkinNote>
                 <SearchButton
                   href={`https://www.myntra.com/${encodeURIComponent(rec.myntra_search_query)}`}

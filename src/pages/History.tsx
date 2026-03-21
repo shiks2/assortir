@@ -8,6 +8,7 @@ import {
   Spinner, ErrorMessage, EmptyState, Row,
 } from '../components/index'
 import styled from 'styled-components'
+import { formatQueryDate, timeAgo } from '../utils/dateUtils'
 
 // ─── Styled ───────────────────────────────────────────────────
 
@@ -141,18 +142,6 @@ const INTENT_LABELS: Record<string, string> = {
   everything: 'Everything',
 }
 
-function formatDate(dateStr: string): string {
-  const date = new Date(dateStr)
-  const now = new Date()
-  const diff = now.getTime() - date.getTime()
-  const days = Math.floor(diff / 86400000)
-
-  if (days === 0) return 'Today'
-  if (days === 1) return 'Yesterday'
-  if (days < 7) return `${days} days ago`
-  return date.toLocaleDateString('en-IN', { day: 'numeric', month: 'short' })
-}
-
 // ─── Component ────────────────────────────────────────────────
 
 export default function History() {
@@ -235,7 +224,7 @@ export default function History() {
                       {query.item_color} {query.item_material} {query.item_type}
                     </ItemTitle>
                     <ItemMeta>
-                      {formatDate(query.created_at)} · {INTENT_LABELS[query.intent] ?? query.intent}
+                      {formatQueryDate(query.created_at)} · {timeAgo(query.created_at)} · {INTENT_LABELS[query.intent] ?? query.intent}
                     </ItemMeta>
                   </ItemInfo>
                   <HelpfulDot $helpful={query.was_helpful} />

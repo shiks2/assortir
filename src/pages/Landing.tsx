@@ -304,7 +304,7 @@ export default function Landing() {
         </NavLinks>
       </Nav>
 
-      <Hero>
+      <Hero data-aos="fade-up">
         <HeroBadge>AI personal styling</HeroBadge>
         <HeroHeadline>
           You bought the pants.<br /><span>Now what?</span>
@@ -330,7 +330,7 @@ export default function Landing() {
         </HeroMediaRow>
       </Hero>
 
-      <DemoStrip>
+      <DemoStrip data-aos="fade-up">
         <DemoFlow>
           <DemoStep><DemoHighlight>White linen pants</DemoHighlight></DemoStep>
           <DemoArrow>→</DemoArrow>
@@ -342,7 +342,7 @@ export default function Landing() {
         </DemoFlow>
       </DemoStrip>
 
-      <Section>
+      <Section data-aos="fade-up">
         <Narrow>
           <SectionTag>The problem</SectionTag>
           <SectionHeadline>Shopping is simple. Styling is difficult.</SectionHeadline>
@@ -394,7 +394,7 @@ export default function Landing() {
         </Container>
       </Section>
 
-      <Section $bg="#faf9f7">
+      <Section $bg="#faf9f7" data-aos="fade-up">
         <Narrow>
           <SectionTag>How it works</SectionTag>
           <SectionHeadline>Three steps. One outfit.</SectionHeadline>
@@ -433,7 +433,7 @@ export default function Landing() {
         </Container>
       </Section>
 
-      <Section>
+      <Section data-aos="fade-up">
         <Narrow>
           <SectionTag>Features</SectionTag>
           <SectionHeadline>A different approach to styling.</SectionHeadline>
@@ -500,7 +500,7 @@ export default function Landing() {
         </Container>
       </Section>
 
-      <ProofSection>
+      <ProofSection data-aos="fade-up">
         <Narrow>
           <SectionTag style={{ color: '#1a1a1a' }}>Early users</SectionTag>
           <SectionHeadline style={{ color: '#fff' }}>User feedback</SectionHeadline>
@@ -525,7 +525,7 @@ export default function Landing() {
 
       <PricingContent />
 
-      <FinalCTA>
+      <FinalCTA data-aos="fade-up">
         <FinalHeadline>Stop looking<br />at your wardrobe.</FinalHeadline>
         <FinalSub>
           Join a growing community of privacy-conscious users.
