@@ -1,8 +1,10 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom'
+import { useEffect } from 'react'
 import { ThemeProvider } from 'styled-components'
 import { theme } from './styles/theme'
 import { AuthProvider, useAuth } from './context/AuthContext'
 import { GlobalStyles } from './styles/GlobalStyles'
+import { trackPageView } from './utils/analytics'
 
 // Pages — we'll build these one by one
 import Login from './pages/Login'
@@ -88,6 +90,13 @@ function FullPageLoader() {
 // ─── Router ───────────────────────────────────────────────────
 
 function AppRouter() {
+  const location = useLocation()
+
+  useEffect(() => {
+    const path = `${location.pathname}${location.search}${location.hash}`
+    trackPageView(path)
+  }, [location.pathname, location.search, location.hash])
+
   return (
     <Routes>
       {/* Public */}
