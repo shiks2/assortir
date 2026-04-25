@@ -62,13 +62,6 @@ const RecWhy = styled.p`
   margin-bottom: 8px;
 `
 
-const SkinNote = styled.p`
-  font-size: ${({ theme }) => theme.typography.sm};
-  color: ${({ theme }) => theme.colors.textSecondary};
-  font-style: italic;
-  margin-bottom: 8px;
-`
-
 const SearchButton = styled.a`
   display: inline-flex;
   align-items: center;
@@ -184,12 +177,14 @@ const FeedbackBtn = styled.button<{ $active?: boolean; $positive?: boolean }>`
 
 // Color name to hex mapping
 const COLOR_MAP: Record<string, string> = {
-  white: '#ffffff', black: '#1a1a1a', navy: '#1B2A4A', olive: '#6B7A3E',
+  white: '#F5F0EB', black: '#1a1a1a', navy: '#1B2A4A', olive: '#6B7A3E',
   beige: '#D4C5A9', grey: '#9b9b9b', gray: '#9b9b9b', brown: '#7C5C3A',
-  terracotta: '#1a1a1a', mustard: '#C9A84C', rust: '#A0522D', blue: '#378ADD',
+  terracotta: '#C97B4A', mustard: '#C9A84C', rust: '#A0522D', blue: '#378ADD',
   green: '#639922', red: '#E24B4A', pink: '#D4537E', camel: '#C19A6B',
   coral: '#E8735A', cobalt: '#185FA5', emerald: '#1D9E75', burgundy: '#722F37',
-  sage: '#87A87B', dusty: '#7B9EC4', warm: '#1a1a1a', deep: '#444',
+  sage: '#87A87B', dusty: '#7B9EC4', warm: '#C9A96E', deep: '#2C1A0E',
+  orange: '#E07B39', cream: '#F2EAD3', khaki: '#B5A77A', charcoal: '#3C3C3C',
+  lavender: '#9B8FBF', teal: '#2A7F7F', maroon: '#6B1A1A', ivory: '#FFFFF0',
 }
 
 function getColorHex(colorName: string): string {
@@ -303,14 +298,6 @@ export default function Result() {
           {/* Header */}
           <Tag $variant="result">{data.recommendations.length} looks</Tag>
           <Heading>Your outfit matches</Heading>
-          <Label style={{ marginTop: 6, marginBottom: 20 }}>
-            {data.profile_summary}
-          </Label>
-
-          {/* Item analysis */}
-          <SurfaceCard style={{ marginBottom: 20 }}>
-            <Label style={{ fontSize: '12px' }}>{data.item_analysis}</Label>
-          </SurfaceCard>
 
           {/* Recommendations */}
           <SectionTitle>Outfit recommendations</SectionTitle>
@@ -324,14 +311,22 @@ export default function Result() {
                 </RecTitle>
                 <RecMeta>{rec.material} · {rec.fit} · {rec.style_vibe}</RecMeta>
                 <RecWhy>{rec.why_it_works}</RecWhy>
-                <SkinNote>{rec.skin_tone_note}</SkinNote>
-                <SearchButton
-                  href={`https://www.myntra.com/${encodeURIComponent(rec.myntra_search_query)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Search on Myntra →
-                </SearchButton>
+                <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+                  <SearchButton
+                    href={`https://www.myntra.com/${encodeURIComponent(rec.search_query)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Search on Myntra →
+                  </SearchButton>
+                  <SearchButton
+                    href={`https://www.flipkart.com/search?q=${encodeURIComponent(rec.search_query)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Search on Flipkart →
+                  </SearchButton>
+                </div>
               </RecCard>
             ))}
           </Stack>
@@ -367,9 +362,6 @@ export default function Result() {
             <>
               <Divider />
               <SectionTitle style={{ marginTop: 20 }}>Beauty picks</SectionTitle>
-              <Label style={{ marginBottom: 12, fontSize: '12px' }}>
-                {data.cosmetics.context}
-              </Label>
               <CosmeticBlock style={{ marginBottom: 8 }}>
                 <CosmeticItem>
                   <CosmeticLabel>Foundation</CosmeticLabel>
@@ -381,16 +373,16 @@ export default function Result() {
                 </CosmeticItem>
                 <CosmeticItem>
                   <CosmeticLabel>Blush</CosmeticLabel>
-                  <CosmeticValue>{data.cosmetics.blush.color_family}</CosmeticValue>
+                  <CosmeticValue>{data.cosmetics.blush}</CosmeticValue>
                 </CosmeticItem>
                 <CosmeticItem>
                   <CosmeticLabel>Eye</CosmeticLabel>
-                  <CosmeticValue>{data.cosmetics.eye.color_family}</CosmeticValue>
+                  <CosmeticValue>{data.cosmetics.eye}</CosmeticValue>
                 </CosmeticItem>
               </CosmeticBlock>
-              {data.cosmetics.myntra_search_query && (
+              {data.cosmetics.search_query && (
                 <SearchButton
-                  href={`https://www.myntra.com/${encodeURIComponent(data.cosmetics.myntra_search_query)}`}
+                  href={`https://www.myntra.com/${encodeURIComponent(data.cosmetics.search_query)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{ marginBottom: 24 }}
@@ -402,12 +394,12 @@ export default function Result() {
           )}
 
           {/* Avoid */}
-          {data.avoid?.length > 0 && (
+          {data.avoid && (
             <>
               <Divider />
-              <SectionTitle style={{ marginTop: 20 }}>Avoid these combinations</SectionTitle>
+              <SectionTitle style={{ marginTop: 20 }}>Avoid this combination</SectionTitle>
               <AvoidList style={{ marginBottom: 24 }}>
-                {data.avoid.map((a, i) => <AvoidItem key={i}>{a}</AvoidItem>)}
+                <AvoidItem>{data.avoid}</AvoidItem>
               </AvoidList>
             </>
           )}
