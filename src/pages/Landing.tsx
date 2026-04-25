@@ -5,6 +5,8 @@ import styled, { keyframes } from 'styled-components'
 
 import { BRAND_NAME, FOUNDER_NAME, FOUNDER_LOCATION, COMPANY_NAME } from '../constants'
 import { PricingContent } from '../components/PricingContent'
+import rangDarkLogo from '../assets/rang_dark.png'
+import rangDarkAnimateVideo from '../assets/rang_dark_animate.mp4'
 
 const fadeUp = keyframes`
   from { opacity: 0; transform: translateY(20px); }
@@ -280,7 +282,7 @@ export default function Landing() {
     <div>
       <Nav>
         <NavLogo to="/" aria-label="Rang">
-          <img src="/src/assets/rang_dark.png" alt="Rang" />
+          <img src={rangDarkLogo} alt="Rang" />
         </NavLogo>
         <NavLinks>
           <NavLink to="/about">About</NavLink>
@@ -307,7 +309,7 @@ export default function Landing() {
         
         <HeroMockup>
           <video autoPlay muted loop playsInline>
-            <source src="/src/assets/rang_dark_animate.mp4" type="video/mp4" />
+            <source src={rangDarkAnimateVideo} type="video/mp4" />
           </video>
         </HeroMockup>
       </Hero>
@@ -522,7 +524,7 @@ export default function Landing() {
       </FinalCTA>
 
       <Footer>
-        <FooterLogo src="/src/assets/rang_dark.png" alt="Rang" />
+        <FooterLogo src={rangDarkLogo} alt="Rang" />
         <FooterMeta>
           <FooterLinks>
             <FooterLink to="/about">About</FooterLink>

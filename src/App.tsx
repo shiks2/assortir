@@ -17,6 +17,7 @@ import Legal from './pages/Legal'
 import About from './pages/About'
 import Contact from './pages/Contact'
 import Pricing from './pages/Pricing'
+import rangAnimatedVideo from './assets/rang_animated.mp4'
 
 // ─── Route Guards ─────────────────────────────────────────────
 
@@ -79,7 +80,7 @@ function FullPageLoader() {
         playsInline
         style={{ width: 132, maxWidth: '48vw', display: 'block' }}
       >
-        <source src="/src/assets/rang_animated.mp4" type="video/mp4" />
+        <source src={rangAnimatedVideo} type="video/mp4" />
       </video>
     </div>
   )

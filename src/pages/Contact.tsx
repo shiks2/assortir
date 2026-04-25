@@ -2,6 +2,8 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import styled, { keyframes } from 'styled-components'
 import { BRAND_NAME, SUPPORT_EMAIL, FOUNDER_NAME, FOUNDER_LOCATION } from '../constants'
+import rangLogo from '../assets/rang_logo.png'
+import rangDarkLogo from '../assets/rang_dark.png'
 
 const fadeUp = keyframes`
   from { opacity: 0; transform: translateY(16px); }
@@ -344,7 +346,7 @@ export default function Contact() {
     <div>
       <Nav>
         <Logo to="/" aria-label="Rang">
-          <img src="/src/assets/rang_logo.png" alt="Rang" />
+          <img src={rangLogo} alt="Rang" />
         </Logo>
         <NavLinks>
           <NavLink to="/about">About</NavLink>
@@ -455,7 +457,7 @@ export default function Contact() {
       </ContactPage>
 
       <Footer>
-        <FooterLogo src="/src/assets/rang_dark.png" alt="Rang" />
+        <FooterLogo src={rangDarkLogo} alt="Rang" />
         <FooterLinksWrap>
           <FooterLink to="/about">About</FooterLink>
           <FooterLink to="/pricing">Pricing</FooterLink>

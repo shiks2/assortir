@@ -1,5 +1,6 @@
 import styled, { keyframes } from 'styled-components'
 import { Link } from 'react-router-dom'
+import rangLogo from '../assets/rang_logo.png'
 
 // ============================================================
 // RANG — Shared Components
@@ -121,7 +122,7 @@ export function Navbar({ activePage, isPro, queriesRemaining, userName, onAvatar
   return (
     <NavBar>
       <LogoText to="/home" aria-label={BRAND_NAME}>
-        <img src="/src/assets/rang_logo.png" alt={BRAND_NAME} />
+        <img src={rangLogo} alt={BRAND_NAME} />
       </LogoText>
       <NavRight>
         <NavLinks>

@@ -6,6 +6,7 @@
 
 import { useParams, Link } from 'react-router-dom'
 import styled from 'styled-components'
+import rangLogo from './rang_logo.png'
 
 const Page = styled.div`
   max-width: 720px;
@@ -363,7 +364,7 @@ export default function Legal() {
     <div>
       <Nav>
         <Logo to="/" aria-label="Rang">
-          <img src="/src/assets/rang_logo.png" alt="Rang" />
+          <img src={rangLogo} alt="Rang" />
         </Logo>
         <BackLink to="/">← Back to home</BackLink>
       </Nav>

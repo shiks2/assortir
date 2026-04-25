@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
+import rangLogo from '../assets/rang_logo.png'
 import {
   CenteredContainer, PageWrapper, AuthCard, AuthHeader, AuthLogo,
   AuthFooter, FormGroup, FieldLabel, Input, Button, ButtonOutline,
@@ -38,7 +39,7 @@ export default function Login() {
         <AuthCard>
           <AuthHeader>
             <AuthLogo to="/" aria-label="Rang">
-              <img src="/src/assets/rang_logo.png" alt="Rang" />
+              <img src={rangLogo} alt="Rang" />
             </AuthLogo>
             <Heading>Welcome back</Heading>
             <Label style={{ marginTop: 6 }}>Your personal AI stylist</Label>

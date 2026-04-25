@@ -159,7 +159,27 @@ const FeedbackRow = styled.div`
   margin-top: 8px;
 `
 
-const FeedbackBtn = styled.button<{ $active?: boolean; $positive?: boolean }>`
+type FeedbackBtnProps = { $active?: boolean; $positive?: boolean }
+
+function getFeedbackBorderColor({ $active, $positive, theme }: FeedbackBtnProps & { theme: any }) {
+  if (!$active) return theme.colors.border
+  if ($positive) return theme.colors.success
+  return theme.colors.error
+}
+
+function getFeedbackBackground({ $active, $positive, theme }: FeedbackBtnProps & { theme: any }) {
+  if (!$active) return 'transparent'
+  if ($positive) return theme.colors.successBg
+  return theme.colors.errorBg
+}
+
+function getFeedbackTextColor({ $active, $positive, theme }: FeedbackBtnProps & { theme: any }) {
+  if (!$active) return theme.colors.textSecondary
+  if ($positive) return theme.colors.success
+  return theme.colors.error
+}
+
+const FeedbackBtn = styled.button<FeedbackBtnProps>`
   flex: 1;
   padding: 10px;
   border-radius: ${({ theme }) => theme.radius.md};
@@ -167,12 +187,9 @@ const FeedbackBtn = styled.button<{ $active?: boolean; $positive?: boolean }>`
   font-weight: ${({ theme }) => theme.typography.medium};
   cursor: pointer;
   transition: all ${({ theme }) => theme.transitions.fast};
-  border: 0.5px solid ${({ $active, $positive, theme }) =>
-    $active ? ($positive ? theme.colors.success : theme.colors.error) : theme.colors.border};
-  background: ${({ $active, $positive, theme }) =>
-    $active ? ($positive ? theme.colors.successBg : theme.colors.errorBg) : 'transparent'};
-  color: ${({ $active, $positive, theme }) =>
-    $active ? ($positive ? theme.colors.success : theme.colors.error) : theme.colors.textSecondary};
+  border: 0.5px solid ${getFeedbackBorderColor};
+  background: ${getFeedbackBackground};
+  color: ${getFeedbackTextColor};
 `
 
 // Color name to hex mapping
@@ -193,6 +210,57 @@ function getColorHex(colorName: string): string {
     if (lower.includes(key)) return val
   }
   return '#D3D1C7'
+}
+
+function normalizeTextList(value: unknown): string[] {
+  if (Array.isArray(value)) {
+    return value
+      .filter((item): item is string => typeof item === 'string')
+      .map((item) => item.trim())
+      .filter(Boolean)
+  }
+
+  if (typeof value === 'string') {
+    const trimmed = value.trim()
+    return trimmed ? [trimmed] : []
+  }
+
+  return []
+}
+
+function joinTextList(value: unknown, fallback = ''): string {
+  const items = normalizeTextList(value)
+  if (!items.length) return fallback
+  return items.join(' · ')
+}
+
+function getRecommendationSearchQuery(rec: Record<string, unknown>): string {
+  const direct = rec.search_query
+  if (typeof direct === 'string' && direct.trim()) return direct
+
+  const myntra = rec.myntra_search_query
+  if (typeof myntra === 'string' && myntra.trim()) return myntra
+
+  return ''
+}
+
+function getCosmeticSearchQuery(cosmetics: Record<string, unknown>): string {
+  const direct = cosmetics.search_query
+  if (typeof direct === 'string' && direct.trim()) return direct
+
+  const myntra = cosmetics.myntra_search_query
+  if (typeof myntra === 'string' && myntra.trim()) return myntra
+
+  return ''
+}
+
+function getCosmeticValueText(value: unknown): string {
+  if (typeof value === 'string') return value
+  if (value && typeof value === 'object' && 'color_family' in value) {
+    const colorFamily = (value as { color_family?: unknown }).color_family
+    if (typeof colorFamily === 'string') return colorFamily
+  }
+  return '—'
 }
 
 // ─── Component ────────────────────────────────────────────────
@@ -282,6 +350,7 @@ export default function Result() {
 
   const { data } = result
   if (!data) return null
+  const avoidItems = normalizeTextList(data.avoid)
 
   return (
     <PageWrapper>
@@ -311,22 +380,24 @@ export default function Result() {
                 </RecTitle>
                 <RecMeta>{rec.material} · {rec.fit} · {rec.style_vibe}</RecMeta>
                 <RecWhy>{rec.why_it_works}</RecWhy>
+                {getRecommendationSearchQuery(rec as unknown as Record<string, unknown>) && (
                 <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
                   <SearchButton
-                    href={`https://www.myntra.com/${encodeURIComponent(rec.search_query)}`}
+                    href={`https://www.myntra.com/${encodeURIComponent(getRecommendationSearchQuery(rec as unknown as Record<string, unknown>))}`}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     Search on Myntra →
                   </SearchButton>
                   <SearchButton
-                    href={`https://www.flipkart.com/search?q=${encodeURIComponent(rec.search_query)}`}
+                    href={`https://www.flipkart.com/search?q=${encodeURIComponent(getRecommendationSearchQuery(rec as unknown as Record<string, unknown>))}`}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     Search on Flipkart →
                   </SearchButton>
                 </div>
+                )}
               </RecCard>
             ))}
           </Stack>
@@ -351,7 +422,7 @@ export default function Result() {
                 </AccessoryRow>
                 <AccessoryRow>
                   <AccessoryLabel style={{ color: '#A32D2D' }}>Avoid</AccessoryLabel>
-                  <AccessoryValue>{data.accessories.avoid}</AccessoryValue>
+                  <AccessoryValue>{joinTextList(data.accessories.avoid, '—')}</AccessoryValue>
                 </AccessoryRow>
               </Card>
             </>
@@ -373,16 +444,16 @@ export default function Result() {
                 </CosmeticItem>
                 <CosmeticItem>
                   <CosmeticLabel>Blush</CosmeticLabel>
-                  <CosmeticValue>{data.cosmetics.blush}</CosmeticValue>
+                  <CosmeticValue>{getCosmeticValueText(data.cosmetics.blush)}</CosmeticValue>
                 </CosmeticItem>
                 <CosmeticItem>
                   <CosmeticLabel>Eye</CosmeticLabel>
-                  <CosmeticValue>{data.cosmetics.eye}</CosmeticValue>
+                  <CosmeticValue>{getCosmeticValueText(data.cosmetics.eye)}</CosmeticValue>
                 </CosmeticItem>
               </CosmeticBlock>
-              {data.cosmetics.search_query && (
+              {getCosmeticSearchQuery(data.cosmetics as unknown as Record<string, unknown>) && (
                 <SearchButton
-                  href={`https://www.myntra.com/${encodeURIComponent(data.cosmetics.search_query)}`}
+                  href={`https://www.myntra.com/${encodeURIComponent(getCosmeticSearchQuery(data.cosmetics as unknown as Record<string, unknown>))}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{ marginBottom: 24 }}
@@ -394,12 +465,14 @@ export default function Result() {
           )}
 
           {/* Avoid */}
-          {data.avoid && (
+          {avoidItems.length > 0 && (
             <>
               <Divider />
               <SectionTitle style={{ marginTop: 20 }}>Avoid this combination</SectionTitle>
               <AvoidList style={{ marginBottom: 24 }}>
-                <AvoidItem>{data.avoid}</AvoidItem>
+                {avoidItems.map((avoid, index) => (
+                  <AvoidItem key={`${avoid}-${index}`}>{avoid}</AvoidItem>
+                ))}
               </AvoidList>
             </>
           )}
