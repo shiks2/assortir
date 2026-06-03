@@ -123,6 +123,7 @@ export default function Legal() {
   const docs = [
     { id: 'privacy', label: 'Privacy' },
     { id: 'terms', label: 'Terms' },
+    { id: 'data-retention', label: 'Data retention' },
     { id: 'cookies', label: 'Cookies' },
   ]
 
