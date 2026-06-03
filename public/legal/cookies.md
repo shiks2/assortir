@@ -10,7 +10,7 @@ Small text files stored on your device by your browser.
 We use essential cookies strictly for **Authentication (Supabase)**. These allow you to stay logged in and keep your styling profile secure. These cookies do not track you across other websites.
 
 ## 3. Analytics & Third-Party Cookies
-We do not use third-party tracking pixels (like Meta Pixel) or invasive marketing cookies. We may use privacy-preserving, first-party analytics to understand site performance.
+We do not use third-party tracking pixels (like Meta Pixel), analytics tracking cookies, or invasive marketing cookies.
 
 ## 4. Managing Cookies
 You can disable cookies in your browser settings, but please note that {{BRAND_NAME}} will not function correctly as you will be unable to log in.

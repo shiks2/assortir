@@ -22,7 +22,7 @@ This policy explains how long we keep your data and why. All data is stored in F
 | Payment records | 7 years | Legal requirement (India Companies Act, EU VAT) |
 | Session tokens (JWT) | 1 hour | Security |
 | Location/GPS data | Not retained — real-time only | Privacy by design |
-| Anonymized analytics | Up to 36 months | Product improvement |
+| Anonymized service-improvement data | Up to 36 months | Product improvement |
 | Support communications | 2 years | Legal protection |
 | Deleted account residual data | 30 days post-deletion | Backup purge cycle |
 
@@ -39,7 +39,7 @@ When you delete your account:
 1. Your profile, style data, and query history are marked for deletion immediately
 2. Data is permanently deleted within 30 days
 3. Payment records are retained for 7 years as required by law
-4. Anonymized analytical data derived from your usage may be retained (it cannot be linked back to you)
+4. Anonymized service-improvement data derived from your usage may be retained (it cannot be linked back to you)
 
 ### 1.5 Data Breach
 
@@ -98,7 +98,7 @@ Before any data is used for analysis, we:
 - Sell your data to fashion brands or advertisers
 - Share individual user data with any third party for marketing
 - Use your data to build profiles for purposes other than styling
-- Allow any third party to identify you from our analytics
+- Allow any third party to identify you from our service-improvement data
 
 ### 2.5 Opt-Out
 
@@ -140,7 +140,7 @@ If we introduce new AI features that require different data usage, we will:
 |---|---|---|
 | Edit style profile | Settings → Style | Updates what we use for recommendations |
 | Edit material preferences | Settings → Materials | Updates fabric blacklist/preferences |
-| AI improvement opt-out | Settings → Privacy | Removes you from analytics program |
+| AI improvement opt-out | Settings → Privacy | Excludes future AI-improvement analysis |
 | Location permission | Browser settings | Disables weather-aware recommendations |
 | Delete query history | Settings → History | Deletes your past recommendations |
 | Delete account | Settings → Account | Permanently deletes all your data |
