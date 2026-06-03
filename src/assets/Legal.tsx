@@ -305,7 +305,7 @@ const docs = {
         <tr><td>Usage counters</td><td>3 months</td><td>Billing verification</td></tr>
         <tr><td>Payment records</td><td>7 years</td><td>Legal requirement</td></tr>
         <tr><td>Location/GPS data</td><td>Never stored</td><td>Privacy by design</td></tr>
-        <tr><td>Anonymized analytics</td><td>Up to 36 months</td><td>Product improvement</td></tr>
+        <tr><td>Anonymized service-improvement data</td><td>Up to 36 months</td><td>Product improvement</td></tr>
       </table>
 
       <h2>2. What We Send to Claude (Anthropic)</h2>
@@ -326,7 +326,7 @@ const docs = {
         <li>Data is aggregated across at least 100 users before drawing conclusions</li>
         <li>No individual's choices can be identified from the analysis</li>
       </ul>
-      <p><strong>We never:</strong> sell your data, share individual data with advertisers, or allow third parties to identify you from our analytics.</p>
+      <p><strong>We never:</strong> sell your data, share individual data with advertisers, or allow third parties to identify you from our service-improvement data.</p>
 
       <h2>4. Opt-Out</h2>
       <p>Go to <strong>Settings → Privacy → "Contribute to AI improvement"</strong> and toggle off. Or email outercirclelabs@gmail.com with subject "AI Training Opt-Out." Opting out has no effect on your recommendations or service access.</p>
@@ -339,14 +339,14 @@ const docs = {
         <tr><th>Control</th><th>Where</th></tr>
         <tr><td>Edit style profile</td><td>Settings → Style</td></tr>
         <tr><td>Edit material blacklist</td><td>Settings → Materials</td></tr>
-        <tr><td>AI improvement opt-out</td><td>Settings → Privacy</td></tr>
+        <tr><td>AI improvement opt-out</td><td>Settings → Privacy (excludes future AI-improvement analysis)</td></tr>
         <tr><td>Delete query history</td><td>Settings → History</td></tr>
         <tr><td>Export your data</td><td>Email outercirclelabs@gmail.com</td></tr>
         <tr><td>Delete account</td><td>Settings → Account</td></tr>
       </table>
 
       <h2>7. Account Deletion</h2>
-      <p>When you delete your account, all personal data is permanently deleted within 30 days. Payment records are retained for 7 years as required by law. Already-anonymized analytical data cannot be retroactively removed as it cannot be linked to you.</p>
+      <p>When you delete your account, all personal data is permanently deleted within 30 days. Payment records are retained for 7 years as required by law. Already-anonymized service-improvement data cannot be retroactively removed as it cannot be linked to you.</p>
 
       <h2>8. Contact</h2>
       <p><strong>outercirclelabs@gmail.com</strong><br/>

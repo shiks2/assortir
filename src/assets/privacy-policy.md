@@ -115,7 +115,7 @@ If you are in the European Union, we process your data under the following legal
 | Generating style recommendations | Contract (Art. 6(1)(b)) |
 | Storing style profile and preferences | Contract (Art. 6(1)(b)) |
 | Location-based weather data | Consent (Art. 6(1)(a)) |
-| Service improvement analytics | Legitimate interests (Art. 6(1)(f)) |
+| Service improvement data processing | Legitimate interests (Art. 6(1)(f)) |
 | AI training on anonymized data | Legitimate interests (Art. 6(1)(f)) |
 | Legal compliance | Legal obligation (Art. 6(1)(c)) |
 
@@ -163,7 +163,7 @@ If Rang is acquired or merges with another company, your data may be transferred
 | Payment records | 7 years (legal requirement) |
 | Session tokens | 1 hour (JWT expiry) |
 | Location data | Never stored — used in real-time only |
-| Anonymized analytics | Up to 3 years |
+| Anonymized service-improvement data | Up to 3 years |
 
 When you delete your account, all personal data is permanently deleted within 30 days except where we have a legal obligation to retain it (e.g. payment records).
 
