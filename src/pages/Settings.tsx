@@ -99,6 +99,18 @@ const SettingsValue = styled.span`
   text-align: right;
 `
 
+const PolicyLinkButton = styled.button`
+  border: none;
+  background: none;
+  padding: 0;
+  font-size: ${({ theme }) => theme.typography.sm};
+  font-weight: ${({ theme }) => theme.typography.medium};
+  color: ${({ theme }) => theme.colors.accent};
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+`
+
 const UsageBar = styled.div`
   width: 100%;
   height: 4px;
@@ -331,6 +343,34 @@ export default function Settings() {
                 ))}
               </ChipGroup>
             </FormGroup>
+          </SettingsSection>
+
+          <SettingsSection>
+            <SectionTitle>Policy</SectionTitle>
+            <SettingsRow>
+              <SettingsLabel>Privacy Policy</SettingsLabel>
+              <PolicyLinkButton onClick={() => navigate('/legal/privacy')}>
+                Read
+              </PolicyLinkButton>
+            </SettingsRow>
+            <SettingsRow>
+              <SettingsLabel>Legal</SettingsLabel>
+              <PolicyLinkButton onClick={() => navigate('/legal')}>
+                Read
+              </PolicyLinkButton>
+            </SettingsRow>
+            <SettingsRow>
+              <SettingsLabel>Data Retention</SettingsLabel>
+              <PolicyLinkButton onClick={() => navigate('/legal/data-retention')}>
+                Read
+              </PolicyLinkButton>
+            </SettingsRow>
+            <SettingsRow>
+              <SettingsLabel>Terms & Conditions</SettingsLabel>
+              <PolicyLinkButton onClick={() => navigate('/legal/terms')}>
+                Read
+              </PolicyLinkButton>
+            </SettingsRow>
           </SettingsSection>
 
           <Stack $gap="8px">
